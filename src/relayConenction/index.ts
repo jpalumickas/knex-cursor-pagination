@@ -1,6 +1,6 @@
 import { Knex } from 'knex';
 import { ConnectionArguments } from '../types';
-import getCursor from '../getCursor';
+import { getCursor } from '../getCursor';
 import { knexCursorPagination } from '../knexCursorPagination';
 
 type Options<TRecord, TResult> = {

@@ -4,7 +4,7 @@ type Record = {
   [key: string]: unknown;
 };
 
-const getCursor = <T extends Record>(item: T) => {
+export const getCursor = <T extends Record>(item: T) => {
   const cursorColumns = Object.keys(item)
     .filter((name) => name.match(/_cursor_\d+/))
     .sort();
@@ -12,5 +12,3 @@ const getCursor = <T extends Record>(item: T) => {
 
   return encodeCursor(values);
 };
-
-export default getCursor;
