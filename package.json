@@ -1,0 +1,49 @@
+{
+  "name": "knex-cursor-pagination",
+  "version": "0.1.0",
+  "description": "Knex cursor pagination with Relay pagination support",
+  "main": "dist/knex-cursor-pagination.js",
+  "module": "dist/knex-cursor-pagination.module.js",
+  "types": "dist/index.d.ts",
+  "source": "src/index.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "repository": "https://github.com/jpalumickas/knex-cursor-pagination",
+  "author": {
+    "name": "Justas Palumickas",
+    "email": "jpalumickas@gmail.com",
+    "url": "https://jpalumickas.com"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "knex": "^0.95.14",
+    "microbundle": "^0.14.2",
+    "prettier": "^2.5.1",
+    "rimraf": "^3.0.2"
+  },
+  "peerDependencies": {
+    "knex": "< 1"
+  },
+  "scripts": {
+    "build": "rimraf dist && microbundle --strict --target node -i src/index.ts -o dist -f modern,es,cjs --no-compress",
+    "dev": "microbundle watch --target node"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
+  "keywords": [
+    "knex",
+    "cursor",
+    "pagination",
+    "relay",
+    "apollo"
+  ]
+}
