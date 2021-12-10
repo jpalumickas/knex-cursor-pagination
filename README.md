@@ -19,10 +19,10 @@ let query = knex
   .from('users')
   .orderBy('posts.created_at', 'DESC')
 
-query = knexCursorPagination(query, { after: 'cursor' })
+query = knexCursorPagination(query, { after: 'your-cursor' })
 
 const results = await query;
-const endCursor = getCursor(results[results.lenght - 1]);
+const endCursor = getCursor(results[results.length - 1]);
 ```
 
 ### Relay Pagination
@@ -34,7 +34,7 @@ import { relayConnection } from 'knex-cursor-pagination'
 
 const args = {
   first: 10,
-  after: 'cursor',
+  after: 'your-cursor',
 }
 
 const query = knex
