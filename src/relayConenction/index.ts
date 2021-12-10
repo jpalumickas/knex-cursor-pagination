@@ -4,6 +4,7 @@ import { getCursor } from '../getCursor';
 import { knexCursorPagination } from '../knexCursorPagination';
 
 type Options<TRecord, TResult> = {
+  defaultLimit?: number;
   query: Knex.QueryBuilder<TRecord, TResult>;
   args: ConnectionArguments;
   formatNode?: (node: TRecord) => TRecord;
@@ -17,12 +18,21 @@ export const relayConnection = async <
   TResult extends TRecord[]
 >({
   query,
-  args = { first: 20 },
+  defaultLimit = 20,
+  args = { first: defaultLimit },
   formatNode = (node) => node,
   executeQuery = async (query) => {
     return (await query) as TResult;
   },
 }: Options<TRecord, TResult>) => {
+  if (!args.first && !args.last) {
+    if (args.before) {
+      args.last = defaultLimit;
+    } else {
+      args.first = defaultLimit;
+    }
+  }
+
   // Forward pagination
   if (args.first) {
     query = knexCursorPagination<TRecord, TResult>(query, {
