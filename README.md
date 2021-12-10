@@ -2,11 +2,6 @@
 
 Add stable cursor pagination to Knex query builder. This package also supports relay connection result.
 
-### Known issues
-
-* Currently not fully working with backwards pagination
-* Using `orderByRaw` you need explicity to provide `ASC` or `DESC`
-
 ## Installation
 
 ```sh
@@ -53,6 +48,11 @@ const result = relayConnection({
   args,
 })
 ```
+
+## Known issues
+
+* Currently not fully working with backwards pagination
+* Using `orderByRaw` you need explicity to provide `ASC` or `DESC`
 
 ## License
 
