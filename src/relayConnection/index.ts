@@ -1,17 +1,7 @@
 import { Knex } from 'knex';
-import { ConnectionArguments } from '../types';
+import { RelayConnectionOptions } from '../types';
 import { getCursor } from '../getCursor';
 import { knexCursorPagination } from '../knexCursorPagination';
-
-type Options<TRecord, TResult> = {
-  defaultLimit?: number;
-  query: Knex.QueryBuilder<TRecord, TResult>;
-  args: ConnectionArguments;
-  formatNode?: (node: TRecord) => TRecord;
-  executeQuery?: (
-    query: Knex.QueryBuilder<TRecord, TResult>
-  ) => Promise<TResult>;
-};
 
 export const relayConnection = async <
   TRecord extends Record<string, unknown>,
@@ -24,7 +14,7 @@ export const relayConnection = async <
   executeQuery = async (query) => {
     return (await query) as TResult;
   },
-}: Options<TRecord, TResult>) => {
+}: RelayConnectionOptions<TRecord, TResult>) => {
   if (!args.first && !args.last) {
     if (args.before) {
       args.last = defaultLimit;

@@ -36,3 +36,13 @@ export interface ConnectionArguments {
   last?: number | null;
   before?: string | null;
 }
+
+export interface RelayConnectionOptions<TRecord, TResult> {
+  defaultLimit?: number;
+  query: Knex.QueryBuilder<TRecord, TResult>;
+  args: ConnectionArguments;
+  formatNode?: (node: TRecord) => TRecord;
+  executeQuery?: (
+    query: Knex.QueryBuilder<TRecord, TResult>
+  ) => Promise<TResult>;
+};
