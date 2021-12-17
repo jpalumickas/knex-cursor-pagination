@@ -1,6 +1,6 @@
 {
   "name": "knex-cursor-pagination",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Knex cursor pagination with Relay pagination support",
   "main": "dist/knex-cursor-pagination.js",
   "module": "dist/knex-cursor-pagination.module.js",
