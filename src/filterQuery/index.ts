@@ -35,7 +35,7 @@ export const filterQuery = <
 
         innerBuilder.where(
           queryBuilder.client.raw(orderQuery.query),
-          COMPARISON_OPERATORS[argDirection][orderQuery.direction],
+          COMPARISON_OPERATORS[argDirection][orderQuery.direction.toUpperCase()],
           cursor[index]
         );
       });
