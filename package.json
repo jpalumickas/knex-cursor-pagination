@@ -18,7 +18,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "knex": "^1.0.1",
+    "knex": "^1.0.3",
     "microbundle": "^0.14.2",
     "prettier": "^2.5.1",
     "rimraf": "^3.0.2"
