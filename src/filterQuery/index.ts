@@ -1,6 +1,7 @@
 import { Knex } from 'knex';
 import { OrderQuery, JsonValue } from '../types';
 
+type OrderDirection = 'ASC' | 'DESC';
 const COMPARISON_OPERATORS = {
   before: {
     ASC: '<',
@@ -33,9 +34,11 @@ export const filterQuery = <
           );
         });
 
+        const direction = orderQuery.direction.toUpperCase() as OrderDirection;
+
         innerBuilder.where(
           queryBuilder.client.raw(orderQuery.query),
-          COMPARISON_OPERATORS[argDirection][orderQuery.direction.toUpperCase()],
+          COMPARISON_OPERATORS[argDirection][direction],
           cursor[index]
         );
       });
