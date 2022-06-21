@@ -21,8 +21,8 @@ let query = knex
 
 query = knexCursorPagination(query, { after: 'your-cursor' })
 
-const results = await query;
-const endCursor = getCursor(results[results.length - 1]);
+const results = await query
+const endCursor = getCursor(results[results.length - 1])
 ```
 
 ### Relay Pagination
