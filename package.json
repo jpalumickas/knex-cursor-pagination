@@ -18,13 +18,13 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "knex": "^1.0.3",
-    "microbundle": "^0.14.2",
-    "prettier": "^2.5.1",
+    "knex": "^2.1.0",
+    "microbundle": "^0.15.0",
+    "prettier": "^2.7.1",
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
-    "knex": "< 2"
+    "knex": "< 3"
   },
   "scripts": {
     "build": "rimraf dist && microbundle --strict --target node -i src/index.ts -o dist -f modern,es,cjs --no-compress",
